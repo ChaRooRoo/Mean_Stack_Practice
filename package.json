@@ -14,5 +14,8 @@
   "devDependencies": {
     "express": "^4.17.1",
     "nodemon": "^1.19.2"
+  },
+  "dependencies": {
+    "uuid": "^3.3.3"
   }
 }

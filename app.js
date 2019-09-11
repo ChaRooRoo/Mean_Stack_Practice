@@ -1,21 +1,24 @@
 const express = require('express');
-const path = require('path');
-//consider requiring moment
-const tasks = require('./tasks');
 const app = express();
+const path = require('path');
+//consider requiring moment for date/ time format
+
 const PORT = process.env.port || 5000;
 //check to see if server works
 
-// (Route) = gets all numbers
-app.get('/api/tasks', (req, res)=>{
-    res.json(tasks);
-});
+//Init Middleware
 
-app.get('/api/tasks/:id', (req, res)=>{
-    res.json(tasks.filter(task => task.id === parseInt(req.params.id)));
-});
+//Body Parser Middleware
+//allows us to use raw json
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+
+
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
+
+ //(arg1: parent route, arg2: require path)
+app.use('/api/tasks', require('./routes/api/tasks'));
 
 
 //push Create new Task
