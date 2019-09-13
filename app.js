@@ -4,13 +4,14 @@ const path = require('path');
 //consider requiring moment for date/ time format
 
 const PORT = process.env.port || 5000;
-//check to see if server works
+
 
 //Init Middleware
 
 //Body Parser Middleware
 //allows us to use raw json
 app.use(express.json());
+
 app.use(express.urlencoded({extended: false}));
 
 
