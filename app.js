@@ -17,7 +17,7 @@ app.use(express.urlencoded({extended: false}));
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
- //(arg1: parent route, arg2: require path)
+ //(arg1: parent route, arg2: require path) Using middle-ware to create a link to that url in our project file path
 app.use('/api/tasks', require('./routes/api/tasks'));
 
 
